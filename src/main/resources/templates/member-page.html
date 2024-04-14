@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprise Individual Project</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+    <div><h1> Enterprise Individual Project </h1>
+        <div th:each="member: ${members}">
+            <div>
+                <h3 th:text="${member.getFirstName() + ' ' + member.getLastName()}"></h3>
+                <p th:text="${'Birthdate: ' + member.getDateOfBirth()}"></p>
+                <p th:text="${'E-Mail: ' + member.getEmail()}"></p>
+                <p th:text="${'Phone: ' + member.getPhone()}"></p>
+
+                <p th:text="${'Street: ' + member.getAddress().getStreet()}"></p>
+                <p th:text="${'Postal Code: ' + member.getAddress().getPostalCode()}"></p>
+                <p th:text="${'City: ' + member.getAddress().getCity()}"></p>
+
+                <a th:href="@{/admin/deletemember2/{id}(id = ${member.getId()})}"><button>Delete member</button></a>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
