@@ -29,16 +29,16 @@ public class MemberService implements MemberServiceInterface {
         return memberRepository.save(member);
     }
 
-    @Override
-    public Member updateMember(int id, Member member) {
+        @Override
+        public Member updateMember(int id, Member member) {
 
-        Member updatedMember = memberRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Member", "Id", id));
-        updatedMember.setFirstName(member.getFirstName());
-        updatedMember.setLastName(member.getLastName());
-        updatedMember.setDateOfBirth(member.getDateOfBirth());
-        updatedMember.setEmail(member.getEmail());
-        updatedMember.setPhone(member.getPhone());
-        return memberRepository.save(updatedMember);
+            Member updatedMember = memberRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Member", "Id", id));
+            updatedMember.setFirstName(member.getFirstName());
+            updatedMember.setLastName(member.getLastName());
+            updatedMember.setDateOfBirth(member.getDateOfBirth());
+            updatedMember.setEmail(member.getEmail());
+            updatedMember.setPhone(member.getPhone());
+            return memberRepository.save(updatedMember);
     }
 
     @Override

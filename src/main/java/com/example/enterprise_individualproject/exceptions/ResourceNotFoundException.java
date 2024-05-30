@@ -6,21 +6,21 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
 
-    private String item;
+    private String name;
     private String field;
     private Object value;
 
     // Constructor
-    public ResourceNotFoundException(String item, String field, Object value) {
-        super(String.format("%s not found with %s '%s'", item, field, value));
-        this.item = item;
+    public ResourceNotFoundException(String name, String field, Object value) {
+        super(String.format("%s with %s '%s' was not found", name, field, value));
+        this.name = name;
         this.field = field;
         this.value = value;
     }
 
     // Getters
     public String getItem() {
-        return item;
+        return name;
     }
 
     public String getField() {
